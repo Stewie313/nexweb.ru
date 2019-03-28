@@ -3,30 +3,25 @@
 namespace HD\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+
+use DB;
 
 class AboutController extends Controller
 {
-  public function show(){
-    $array = array(
+    //
 
-              'title'=>'Laravel Project',
-              'data' =>[
-                  'one' => 'List 1',
-                  'two' => 'List 2',
-                  'three' => 'List 3',
-                  'four' => 'List 4',
-                  'five' => 'List 5'
-                  ],
-              'dataI' =>['List 1','List 2','List 3','List 4','List 5'],
+    public function show() {
 
-              'bvar' => true,
-              'script' =>"<script>alert('hello')</script>"
+		if(view()->exists('default.about')) {
 
-              );
+      $pages = DB::select("SELECT * FROM `pages` WHERE `alias`=:alias",['alias'=>'about']);
 
-  if(view()->exists('default.about')) {
-    return view('default.about',$array);
-  }
-  abort(404);
-  }
+			return view('default.about')->withPage($pages[0])->withTitle('About our company');
+
+				}
+		abort(404);
+	}
+
 }

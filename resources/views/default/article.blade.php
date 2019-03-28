@@ -10,9 +10,11 @@
 
 @section('content')
 		<div class="jumbotron">
-			@if ($page)
-            <h2 class="blog-post-title">{{ $page->name }}</h2>
-						{!!$page->text!!}
-			@endif
+
+
+            <br><a href="{{ route('articles') }}"><- Назад к постам!</a><h2 class="blog-post-title">{{ $article->name }}</h2>
+						{!!$article->text!!}
+
+
     </div>
 @endsection

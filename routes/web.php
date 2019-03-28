@@ -21,3 +21,5 @@ Route::get('/articles', 'ArticleController@show')->name('articles');
 Route::get('/about', 'AboutController@show')->name('about');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::match(['get','post'],'/contact/{name?}',['uses'=>'ContactController@show','as'=>'contact']);

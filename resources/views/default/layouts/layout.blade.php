@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+		
 		<title>{{ $title }}</title>
 
 		<!-- Latest compiled and minified CSS -->
@@ -12,7 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body>
-
+	
 	@section('navbar')
 	<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -21,16 +21,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ route('index')}}">Home</a></li>
+            <li class="active"><a href="{{ route('home')}}">Home</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="{{ route('articles')}}">Articles</a></li>
             <li><a href="{{ route('article',array('id'=>10))}}">Article</a></li>
+            <li><a href="{{ route('contact')}}">Contact</a></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
     @show
-
+	
 	@section('header')
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -45,7 +46,7 @@
    	<div class="container">
       <!-- Example row of columns -->
       <div class="row">
-
+      
        <div class="col-md-3">
        @section('sidebar')
       	<div class="sidebar-module">
@@ -67,8 +68,8 @@
           </div>
         @show
       	</div>
-
-      	@yield('content')
+      	
+      	@yield('content') 
       </div>
 
       <hr>
