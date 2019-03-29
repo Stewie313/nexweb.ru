@@ -4,7 +4,7 @@ namespace HD;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Country extends Model
 {
     //
     public function user() {

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use HD\Article;
+use HD\User;
+use HD\Country;
 
 class ArticleController extends Controller
 {
@@ -21,12 +23,27 @@ class ArticleController extends Controller
 
   public function showArticle($id){
 
-    $article=Article::findOrFail($id);
+    //$user = User::find(1);
+    //dump($user->articles);
 
-    if(view()->exists('default.article')) {
+    //$article=Article::find(5);
+    //dump($article->user->name);
+
+    //$country = Country::find(1);
+    //dump($country->user);
+
+
+
+    //$article=Article::findOrFail($id);
+
+    $user=User::find(1);
+    $roles=$user->roles;
+    dump($roles);
+
+    /*if(view()->exists('default.article')) {
       return view('default.article')->withTitle("Articles")->withArticle($article);
     }
-    abort(404);
+    abort(404);*/
     }
 
 }
